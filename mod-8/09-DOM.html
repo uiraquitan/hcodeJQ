@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+	<!--    <script src="js/jquery-3.3.1.js"></script>-->
+	<script src="https://code.jquery.com/jquery-3.3.1.js"
+		integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+	<style>
+
+
+	</style>
+
+
+</head>
+
+<body>
+
+	<section class="container section">
+		<h1>Percorrer e DOM</h1>
+		<p>percorrendo o DOM utilizando da jQuery</p>
+
+		<div class="container">
+
+			<ul class="enfase container">
+				<li class="enfase2">item 1</li>
+				<li class="enfase2">item 2</li>
+				<li class="enfase2 enfase4">item 3 com enfase4</li>
+				<li class="enfase2">item 4</li>
+				<li class="enfase2">item 5</li>
+				<li>
+					<ul>
+						<li class="enfase2 enfase3">item com enfase2 e enfase3.</li>
+					</ul>
+
+				</li>
+			</ul>
+		</div>
+	</section>
+
+
+	<script>
+
+		console.log($("ul.enfase").children("li"));
+		console.log($("ul.enfase").find("li"));
+
+		console.group("Parent");
+		console.log($("li").parent());
+		console.log($(".enfase4").parent());
+		console.log($(".enfase3").parents(".container"));
+
+		// o ParentsUntil Não adiciona o item do qual ele encontrou, para nele
+		console.log($(".enfase3").parentsUntil(".section"));
+		console.groupEnd();
+
+		console.group("Closest");
+		//busca o antecessor mais proximo
+		console.log($(".enfase3").closest(".container"));
+		console.groupEnd();
+
+
+		console.group("Prev");
+		console.log($(".enfase4").prev());
+		console.log($(".enfase4").next());
+
+		console.log($(".enfase4").prevAll());
+		console.log($(".enfase4").nextAll());
+		console.groupEnd();
+
+
+		console.group("Siblings");
+		console.log($(".enfase4").siblings());
+		console.groupEnd();
+
+		console.log($("ul.enfase li").first().nextUntil(".enfase4").add("li.enfase4"));
+
+		// console.group("Siblings");
+		// console.groupEnd();
+
+
+
+
+
+
+	</script>
+</body>
+
+</html>
